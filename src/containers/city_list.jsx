@@ -1,22 +1,37 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+
 import City from "../containers/city";
 
 import { setCities } from "../actions";
 
 class CityList extends Component {
-  componentWillMount() {
-    this.props.setCities();
+  renderList() {
+    return this.props.cities.map((city) => {
+      return (
+        <City key={city.name} city={city} />
+      );
+    });
   }
 
   render() {
     return (
-      <div className="city_list col-sm-7">
-        {this.props.cities.map((flat, index) => {
-          return <City key={city.name} city={city} tabIndex={index} />;
-        })}
-      </div>
+      <ul className="list-group cities">
+        {this.renderList()}
+      </ul>
     );
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    cities: state.cities
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setCities }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CityList);
