@@ -3,14 +3,14 @@ import cities from "../cities";
 
 export function setCities() {
   return {
-    type: "SET_FLATS",
+    type: "SET_CITIES",
     payload: cities
   };
 }
 
 export function selectCity(city) {
   return {
-    type: "SET_CITY",
+    type: "SELECT_CITY",
     payload: city
   };
 }

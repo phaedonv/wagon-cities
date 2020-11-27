@@ -1,9 +1,9 @@
 export default function(state, action) {
   if (state === undefined) {
-    return [];
+    return null;
   }
-  switch (action.type) { // mutiway branch to case, istead of else if idiom
-    case "SET_CITIES":
+  switch (action.type) {
+    case "SELECT_CITY":
       return action.payload;
     default:
       return state;
