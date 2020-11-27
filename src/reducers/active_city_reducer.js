@@ -3,7 +3,7 @@ export default function(state, action) {
     return null;
   }
   switch (action.type) {
-    case "SELECT_CITY":
+    case "CITY_SELECTED":
       return action.payload;
     default:
       return state;

@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 
 import City from "../containers/city";
 
-import { setCities } from "../actions";
-
 class CityList extends Component {
   renderList() {
     return this.props.cities.map((city) => {
@@ -30,8 +28,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setCities }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CityList);
+export default connect(mapStateToProps)(CityList);
